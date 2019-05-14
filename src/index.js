@@ -5,7 +5,11 @@ import { createStore, combineReducers} from 'redux';
 import { Provider } from 'react-redux';
 
 const airplaneReducer = (state = [], action) =>{
-    console.log(`I'm working!`)
+    const airplane = action.airplane
+    return [
+        ...state,
+        airplane
+    ];
 }
 
 const storeInstance = createStore(
