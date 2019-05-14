@@ -8,25 +8,38 @@ class App extends Component {
 
     this.state = {
       enteredAirplane: '',
+      numberOfPlanes: 0,
     }
   }
   changePlane = (event) => {
-    this.setState({
-      enteredAirplane: event.target.value,
-    })
+    if (event.target.dataset.name === 'plane'){
+      this.setState({
+        enteredAirplane: event.target.value
+      })
+    } else if (event.target.dataset.name === 'number'){
+      this.setState({
+        numberOfPlanes : event.target.value
+      })
+    }
   }
 
   addPlane = (event) => {
-    this.props.dispatch({ type: 'PLANE', airplane: this.state.enteredAirplane });
+    this.props.dispatch({ type: 'PLANE',
+    airplane: {
+      enteredAirplane: this.state.enteredAirplane,
+      numberOfPlanes: this.state.numberOfPlanes},
+    });
   }
   render() {
     const airplaneArray = this.props.reduxState.airplaneReducer.map((plane, index) => {
-      return <p key={index}>{plane}</p>
+      return <p key={index}>{plane.enteredAirplane} {plane.numberOfPlanes}
+      </p>
     })
     return (
       <div>
         <h1>Redux Airport</h1>
-        <input placeholder="Airline Name" onChange={this.changePlane} />
+        <input placeholder="Airline Name" onChange={this.changePlane} data-name="plane"/>
+        <input placeholder="Number of Planes" onChange={this.changePlane} data-name="number"/>
         <button onClick={this.addPlane}>Add Airline</button>
         {airplaneArray}
       </div>

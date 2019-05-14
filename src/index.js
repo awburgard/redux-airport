@@ -5,6 +5,10 @@ import { createStore, combineReducers} from 'redux';
 import { Provider } from 'react-redux';
 
 const airplaneReducer = (state = [], action) =>{
+    console.log(action)
+    if (action.type !== 'PLANE'){
+        return state;
+    }
     const airplane = action.airplane
     return [
         ...state,
