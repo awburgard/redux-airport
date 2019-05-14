@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import App from './components/App/App';
 import { createStore, combineReducers} from 'redux';
 import { Provider } from 'react-redux';
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 const airplaneReducer = (state = [], action) =>{
     console.log(action)
