@@ -23,7 +23,7 @@ class App extends Component {
     }
   }
 
-  clearInputs =(event)=>{
+  clearInputs = (event) => {
     this.setState({
       enteredAirplane: '',
       numberOfPlanes: '',
@@ -58,13 +58,28 @@ class App extends Component {
       </div>
     })
     return (
-      <div>
-        <h1 className="jumbotron">Redux Airport</h1>
-        <div className="input-group mb-3">
-          <input value={this.state.enteredAirplane} className="input-group-text" placeholder="Airline Name" onChange={this.changePlane} data-name="plane" />
-          <input value={this.state.numberOfPlanes} className="input-group-text" placeholder="Number of Planes" onChange={this.changePlane} data-name="number" />
+      <div className="container">
+        <div className="jumbotron">
+          <h1>Redux Airport</h1>
+          <h3>Add Airplanes</h3>
         </div>
-        <button onClick={this.addPlane} className="btn btn-primary">Add Airline</button>
+        <div className="input-group mb-3">
+          <input
+            value={this.state.enteredAirplane}
+            className="input-group-text mr-1"
+            placeholder="Airline Name"
+            onChange={this.changePlane}
+            data-name="plane" />
+
+          <input
+            value={this.state.numberOfPlanes}
+            className="input-group-text mr-1"
+            placeholder="Number of Planes"
+            onChange={this.changePlane}
+            data-name="number" />
+
+          <button onClick={this.addPlane} className="btn btn-primary">Add Airline</button>
+        </div>
         <div className="row">
           {airplaneArray}
         </div>
