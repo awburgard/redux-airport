@@ -1,0 +1,5 @@
+.jumbotron-plane{
+    background: url('/images/plane.jpg');
+    background-position: center 65%;
+    background-size: cover;
+}

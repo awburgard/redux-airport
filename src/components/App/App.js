@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './app.css'
 import { connect } from 'react-redux';
 import mapReduxStateToProps from '../../modules/mapReduxStateToProps';
 
@@ -59,7 +60,7 @@ class App extends Component {
     })
     return (
       <div className="container">
-        <div className="jumbotron">
+        <div className="jumbotron jumbotron-plane">
           <h1>Redux Airport</h1>
           <h3>Add Airplanes</h3>
         </div>
